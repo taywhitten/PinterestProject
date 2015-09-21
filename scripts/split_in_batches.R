@@ -21,3 +21,5 @@ recreate <- recreate[order(recreate$board_id,recreate$pin_no),]
 table(table(recreate$index))
 
 save(df_full, file="df.RData")
+
+print('done')
