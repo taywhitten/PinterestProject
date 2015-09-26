@@ -10,7 +10,6 @@
 # LOAD PACKAGES & DATA
 #-------------------------------------------------------------------------------------------------------------------------------------------
 load("~/Downloads/FinalData.Rdata")
-pinterest <- data[, 28:98]
 
 
 #===========================================================================================================================================
@@ -19,17 +18,11 @@ pinterest <- data[, 28:98]
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # female_turker : the gender of the turker
 #-------------------------------------------------------------------------------------------------------------------------------------------
-pinterest$female_turker[pinterest$Answer.Q01Answer0 == "Female"] <- 1
-pinterest$female_turker[pinterest$Answer.Q01Answer0 == "Male"] <- 0
-pinterest$female_turker[pinterest$Answer.Q01Answer0 == "Don't want to answer"] <- 3
-pinterest$female_turker[pinterest$Answer.Q01Answer0 == ""] <- NA
 class(pinterest$female_turker)
-table(pinterest$female_turker)
 recode <- c(Male = 0, Female = 1, Refuse = 3)
-pinterest$female_turker <- factor(pinterest$female_turker, levels = recode, labels = names(recode))
+
 class(pinterest$female_turker)
 table(pinterest$female_turker)
-pinterest <- pinterest[ , -which(names(pinterest) %in% c("Answer.Q01Answer0"))]
 
 
 
