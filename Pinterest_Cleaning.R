@@ -10,7 +10,7 @@
 # LOAD PACKAGES & DATA
 #-------------------------------------------------------------------------------------------------------------------------------------------
 setwd("/Users/taylorbrown/Google\ Drive/Projects\ Working/Little_Monster/Pinterest\ Project/littlemonster")
-load("~/Downloads/FinalData.Rdata")
+load("Pinterest_data_Raw.Rdata")
 
 pinterest <- data[, c(16,28:98)]
 
@@ -1562,3 +1562,5 @@ table(pinterest$bodytype_sC, useNA = c("always"))
 pinterest$Answer.Q10Answerc <- NULL
 
 
+
+save(pinterest, file = "Pinterest_data_analysis.Rdata")
