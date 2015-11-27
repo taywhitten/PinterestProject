@@ -1563,4 +1563,351 @@ pinterest$Answer.Q10Answerc <- NULL
 
 
 
+
+#===========================================================================================================================================
+# Fix miss-codes
+#===========================================================================================================================================
+
+#-------------------------------------------------------------------------------------------------------------------------------------------
+# In some instance, the Turker said that there was only one person in the image, but then only answered section A
+# To preserve that information, I transcript it below
+#-------------------------------------------------------------------------------------------------------------------------------------------
+
+messy_marvins <- pinterest[pinterest$image_count_sA == 'One' & !is.na(pinterest$image_count_sA),]
+
+for (i in 1:nrow(pinterest)){
+  if (!is.na(pinterest$image_count_sA[i])){
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$image_background_sB[i])){
+      pinterest$image_background_sB[i] <- pinterest$image_background_sA[i]
+      pinterest$image_background_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$content_FoodDrink_sB[i])){
+      pinterest$content_FoodDrink_sB[i] <- pinterest$content_FoodDrink_sA[i]
+      pinterest$image_background_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$content_Supplement_sB[i])){
+      pinterest$content_Supplement_sB[i] <- pinterest$content_Supplement_sA[i]
+      pinterest$content_Supplement_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$content_FitnessEqp_sB[i])){
+      pinterest$content_FitnessEqp_sB[i] <- pinterest$content_FitnessEqp_sA[i]
+      pinterest$content_FitnessEqp_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$content_Clothes_sB[i])){
+      pinterest$content_Clothes_sB[i] <- pinterest$content_Clothes_sA[i]
+      pinterest$content_Clothes_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$content_Nature_sB[i])){
+      pinterest$content_Nature_sB[i] <- pinterest$content_Nature_sA[i]
+      pinterest$content_Nature_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$content_Nature_sB[i])){
+      pinterest$content_Nature_sB[i] <- pinterest$content_Nature_sA[i]
+      pinterest$content_Nature_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$content_Urban_sB[i])){
+      pinterest$content_Urban_sB[i] <- pinterest$content_Urban_sA[i]
+      pinterest$content_Urban_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$content_Clothes_sB[i])){
+      pinterest$content_Clothes_sB[i] <- pinterest$content_Clothes_sA[i]
+      pinterest$content_Clothes_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$content_Other_sB[i])){
+      pinterest$content_Other_sB[i] <- pinterest$content_Other_sA[i]
+      pinterest$content_Other_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$image_content_sB[i])){
+      pinterest$image_content_sB[i] <- pinterest$image_content_sA[i]
+      pinterest$image_content_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$image_contentother_sB[i])){
+      pinterest$image_contentother_sB[i] <- pinterest$image_contentother_sA[i]
+      pinterest$image_contentother_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Health_sB[i])){
+      pinterest$theme_Health_sB[i] <- pinterest$theme_Health_sA[i]
+      pinterest$theme_Health_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_DiseaseIll_sB[i])){
+      pinterest$theme_DiseaseIll_sB[i] <- pinterest$theme_DiseaseIll_sA[i]
+      pinterest$theme_DiseaseIll_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Medicine_sB[i])){
+      pinterest$theme_Medicine_sB[i] <- pinterest$theme_Medicine_sA[i]
+      pinterest$theme_Medicine_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Mensuration_sB[i])){
+      pinterest$theme_Mensuration_sB[i] <- pinterest$theme_Mensuration_sA[i]
+      pinterest$theme_Mensuration_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Medicine_sB[i])){
+      pinterest$theme_Medicine_sB[i] <- pinterest$theme_Medicine_sA[i]
+      pinterest$theme_Medicine_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Science_sB[i])){
+      pinterest$theme_Science_sB[i] <- pinterest$theme_Science_sA[i]
+      pinterest$theme_Science_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Infographic_sB[i])){
+      pinterest$theme_Infographic_sB[i] <- pinterest$theme_Infographic_sA[i]
+      pinterest$theme_Infographic_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_PhysicalFit_sB[i])){
+      pinterest$theme_PhysicalFit_sB[i] <- pinterest$theme_PhysicalFit_sA[i]
+      pinterest$theme_PhysicalFit_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Cycling_sB[i])){
+      pinterest$theme_Cycling_sB[i] <- pinterest$theme_Cycling_sA[i]
+      pinterest$theme_Cycling_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Running_sB[i])){
+      pinterest$theme_Running_sB[i] <- pinterest$theme_Running_sA[i]
+      pinterest$theme_Running_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Yoga_sB[i])){
+      pinterest$theme_Yoga_sB[i] <- pinterest$theme_Yoga_sA[i]
+      pinterest$theme_Yoga_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_FitnessEqp_sB[i])){
+      pinterest$theme_FitnessEqp_sB[i] <- pinterest$theme_FitnessEqp_sA[i]
+      pinterest$theme_FitnessEqp_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_WorkoutPlan_sB[i])){
+      pinterest$theme_WorkoutPlan_sB[i] <- pinterest$theme_WorkoutPlan_sA[i]
+      pinterest$theme_WorkoutPlan_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Fashion_sB[i])){
+      pinterest$theme_Fashion_sB[i] <- pinterest$theme_Fashion_sA[i]
+      pinterest$theme_Fashion_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Weightloss_sB[i])){
+      pinterest$theme_Weightloss_sB[i] <- pinterest$theme_Weightloss_sA[i]
+      pinterest$theme_Weightloss_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_FoodDrink_sB[i])){
+      pinterest$theme_FoodDrink_sB[i] <- pinterest$theme_FoodDrink_sA[i]
+      pinterest$theme_FoodDrink_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Sugar_sB[i])){
+      pinterest$theme_Sugar_sB[i] <- pinterest$theme_Sugar_sA[i]
+      pinterest$theme_Sugar_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Detox_sB[i])){
+      pinterest$theme_Detox_sB[i] <- pinterest$theme_Detox_sA[i]
+      pinterest$theme_Detox_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Supplement_sB[i])){
+      pinterest$theme_Supplement_sB[i] <- pinterest$theme_Supplement_sA[i]
+      pinterest$theme_Supplement_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_MentalHealth_sB[i])){
+      pinterest$theme_MentalHealth_sB[i] <- pinterest$theme_MentalHealth_sA[i]
+      pinterest$theme_MentalHealth_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_EmotionalWell_sB[i])){
+      pinterest$theme_EmotionalWell_sB[i] <- pinterest$theme_EmotionalWell_sA[i]
+      pinterest$theme_EmotionalWell_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Beauty_sB[i])){
+      pinterest$theme_Beauty_sB[i] <- pinterest$theme_Beauty_sA[i]
+      pinterest$theme_Beauty_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Sleep_sB[i])){
+      pinterest$theme_Sleep_sB[i] <- pinterest$theme_Sleep_sA[i]
+      pinterest$theme_Sleep_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$theme_Other_sB[i])){
+      pinterest$theme_Other_sB[i] <- pinterest$theme_Other_sA[i]
+      pinterest$theme_Other_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$image_themes_sB[i])){
+      pinterest$image_themes_sB[i] <- pinterest$image_themes_sA[i]
+      pinterest$image_themes_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$image_themesother_sB[i])){
+      pinterest$image_themesother_sB[i] <- pinterest$image_themesother_sA[i]
+      pinterest$image_themesother_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$text_sB[i])){
+      pinterest$text_sB[i] <- pinterest$text_sA[i]
+      pinterest$text_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'One' & is.na(pinterest$image_count_sB[i])){
+      pinterest$image_count_sB[i] <- pinterest$image_count_sA[i]
+      pinterest$image_count_sA[i] <- NA
+    }
+  }
+}
+
+for (i in 1:nrow(pinterest)){
+  if (!is.na(pinterest$image_count_sA[i])){
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$image_background_sC[i])){
+      pinterest$image_background_sC[i] <- pinterest$image_background_sA[i]
+      pinterest$image_background_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$content_FoodDrink_sC[i])){
+      pinterest$content_FoodDrink_sC[i] <- pinterest$content_FoodDrink_sA[i]
+      pinterest$image_background_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$content_Supplement_sC[i])){
+      pinterest$content_Supplement_sC[i] <- pinterest$content_Supplement_sA[i]
+      pinterest$content_Supplement_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$content_FitnessEqp_sC[i])){
+      pinterest$content_FitnessEqp_sC[i] <- pinterest$content_FitnessEqp_sA[i]
+      pinterest$content_FitnessEqp_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$content_Clothes_sC[i])){
+      pinterest$content_Clothes_sC[i] <- pinterest$content_Clothes_sA[i]
+      pinterest$content_Clothes_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$content_Nature_sC[i])){
+      pinterest$content_Nature_sC[i] <- pinterest$content_Nature_sA[i]
+      pinterest$content_Nature_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$content_Nature_sC[i])){
+      pinterest$content_Nature_sC[i] <- pinterest$content_Nature_sA[i]
+      pinterest$content_Nature_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$content_Urban_sC[i])){
+      pinterest$content_Urban_sC[i] <- pinterest$content_Urban_sA[i]
+      pinterest$content_Urban_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$content_Clothes_sC[i])){
+      pinterest$content_Clothes_sC[i] <- pinterest$content_Clothes_sA[i]
+      pinterest$content_Clothes_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$content_Other_sC[i])){
+      pinterest$content_Other_sC[i] <- pinterest$content_Other_sA[i]
+      pinterest$content_Other_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$image_content_sC[i])){
+      pinterest$image_content_sC[i] <- pinterest$image_content_sA[i]
+      pinterest$image_content_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$image_contentother_sC[i])){
+      pinterest$image_contentother_sC[i] <- pinterest$image_contentother_sA[i]
+      pinterest$image_contentother_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Health_sC[i])){
+      pinterest$theme_Health_sC[i] <- pinterest$theme_Health_sA[i]
+      pinterest$theme_Health_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_DiseaseIll_sC[i])){
+      pinterest$theme_DiseaseIll_sC[i] <- pinterest$theme_DiseaseIll_sA[i]
+      pinterest$theme_DiseaseIll_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Medicine_sC[i])){
+      pinterest$theme_Medicine_sC[i] <- pinterest$theme_Medicine_sA[i]
+      pinterest$theme_Medicine_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Mensuration_sC[i])){
+      pinterest$theme_Mensuration_sC[i] <- pinterest$theme_Mensuration_sA[i]
+      pinterest$theme_Mensuration_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Medicine_sC[i])){
+      pinterest$theme_Medicine_sC[i] <- pinterest$theme_Medicine_sA[i]
+      pinterest$theme_Medicine_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Science_sC[i])){
+      pinterest$theme_Science_sC[i] <- pinterest$theme_Science_sA[i]
+      pinterest$theme_Science_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Infographic_sC[i])){
+      pinterest$theme_Infographic_sC[i] <- pinterest$theme_Infographic_sA[i]
+      pinterest$theme_Infographic_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_PhysicalFit_sC[i])){
+      pinterest$theme_PhysicalFit_sC[i] <- pinterest$theme_PhysicalFit_sA[i]
+      pinterest$theme_PhysicalFit_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Cycling_sC[i])){
+      pinterest$theme_Cycling_sC[i] <- pinterest$theme_Cycling_sA[i]
+      pinterest$theme_Cycling_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Running_sC[i])){
+      pinterest$theme_Running_sC[i] <- pinterest$theme_Running_sA[i]
+      pinterest$theme_Running_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Yoga_sC[i])){
+      pinterest$theme_Yoga_sC[i] <- pinterest$theme_Yoga_sA[i]
+      pinterest$theme_Yoga_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_FitnessEqp_sC[i])){
+      pinterest$theme_FitnessEqp_sC[i] <- pinterest$theme_FitnessEqp_sA[i]
+      pinterest$theme_FitnessEqp_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_WorkoutPlan_sC[i])){
+      pinterest$theme_WorkoutPlan_sC[i] <- pinterest$theme_WorkoutPlan_sA[i]
+      pinterest$theme_WorkoutPlan_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Fashion_sC[i])){
+      pinterest$theme_Fashion_sC[i] <- pinterest$theme_Fashion_sA[i]
+      pinterest$theme_Fashion_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Weightloss_sC[i])){
+      pinterest$theme_Weightloss_sC[i] <- pinterest$theme_Weightloss_sA[i]
+      pinterest$theme_Weightloss_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_FoodDrink_sC[i])){
+      pinterest$theme_FoodDrink_sC[i] <- pinterest$theme_FoodDrink_sA[i]
+      pinterest$theme_FoodDrink_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Sugar_sC[i])){
+      pinterest$theme_Sugar_sC[i] <- pinterest$theme_Sugar_sA[i]
+      pinterest$theme_Sugar_sA[i] <- NA
+    }
+    #if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Detox_sC[i])){
+      #pinterest$theme_Detox_sC[i] <- pinterest$theme_Detox_sA[i]
+      #pinterest$theme_Detox_sA[i] <- NA
+    #}
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Supplement_sC[i])){
+      pinterest$theme_Supplement_sC[i] <- pinterest$theme_Supplement_sA[i]
+      pinterest$theme_Supplement_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_MentalHealth_sC[i])){
+      pinterest$theme_MentalHealth_sC[i] <- pinterest$theme_MentalHealth_sA[i]
+      pinterest$theme_MentalHealth_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_EmotionalWell_sC[i])){
+      pinterest$theme_EmotionalWell_sC[i] <- pinterest$theme_EmotionalWell_sA[i]
+      pinterest$theme_EmotionalWell_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Beauty_sC[i])){
+      pinterest$theme_Beauty_sC[i] <- pinterest$theme_Beauty_sA[i]
+      pinterest$theme_Beauty_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Sleep_sC[i])){
+      pinterest$theme_Sleep_sC[i] <- pinterest$theme_Sleep_sA[i]
+      pinterest$theme_Sleep_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$theme_Other_sC[i])){
+      pinterest$theme_Other_sC[i] <- pinterest$theme_Other_sA[i]
+      pinterest$theme_Other_sA[i] <- NA
+    }
+    #if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$image_themes_sC[i])){
+      #pinterest$image_themes_sC[i] <- pinterest$image_themes_sA[i]
+      #pinterest$image_themes_sA[i] <- NA
+    #}
+    #if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$image_themesother_sC[i])){
+      #pinterest$image_themesother_sC[i] <- pinterest$image_themesother_sA[i]
+      #pinterest$image_themesother_sA[i] <- NA
+    #}
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$text_sC[i])){
+      pinterest$text_sC[i] <- pinterest$text_sA[i]
+      pinterest$text_sA[i] <- NA
+    }
+    if (pinterest$image_count_sA[i] == 'Many' & is.na(pinterest$image_count_sC[i])){
+      pinterest$image_count_sC[i] <- pinterest$image_count_sA[i]
+      pinterest$image_count_sA[i] <- NA
+    }
+  }
+}
+
+#-------------------------------------------------------------------------------------------------------------------------------------------
+# NOTE: If the Turker identified only one person but answered sections A AND B, then I just leave it alone
+#-------------------------------------------------------------------------------------------------------------------------------------------
+
+
 save(pinterest, file = "Pinterest_data_analysis.Rdata")

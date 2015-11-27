@@ -37,6 +37,27 @@ load("Pinterest_data_analysis.Rdata")
 #===========================================================================================================================================
 # (2) DESCRIPTIVES
 #===========================================================================================================================================
+
+#-------------------------------------------------------------------------------------------------------------------------------------------
+# Demographics of Turkers
+#-------------------------------------------------------------------------------------------------------------------------------------------
+# Unique # of Turkers
+length(unique(pinterest$WorkerId))
+
+# Gender
+table(pinterest$female_turker)
+
+# Age
+summary(pinterest$age_turker)
+pinterest$age_turker[pinterest$age_turker == 858] <- NA
+
+# Age by gender
+summaryBy(age_turker~female_turker, data=pinterest, FUN=c(min, mean, median, max, skew), na.rm=TRUE)
+
+# Race
+table(pinterest$race_turker)
+
+#-------------------------------------------------------------------------------------------------------------------------------------------
 # General
 #-------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -47,14 +68,12 @@ pinterest$section[!is.na(pinterest$image_background_sB)] <- 2
 pinterest$section[!is.na(pinterest$image_background_sC)] <- 3
 pinterest$section[pinterest$section == ''] <- NA
 
-
-
 table(pinterest$section, useNA = c("always"))
 
-# Average number of people
-
-
-
+# How many people are in each?
+summary(pinterest$image_count_sA)
+summary(pinterest$image_count_sB)
+summary(pinterest$image_count_sC)
 
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
